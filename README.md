@@ -67,6 +67,8 @@ It includes realistic preprocessing challenges such as:
 | `Payment_Method` | Payment method |
 | `Churn` | Target variable |
 
+
+
 ## Machine Learning Workflow
 
 ```text
@@ -97,42 +99,48 @@ K Selection
 Prediction
     |
 Model Evaluation
-Data Preprocessing
-Missing Values
+````
+
+## Data Preprocessing
+
+### Missing Values
 
 Missing numerical values are handled using median imputation, while categorical values are handled using the mode.
 
-Duplicate Records
+### Duplicate Records
 
 Duplicate records are identified and removed before model training.
 
-Outlier Detection
+### Outlier Detection
 
 Numerical features are analyzed using box plots to identify potential outliers.
 
-Categorical Encoding
+### Categorical Encoding
 
 Categorical variables are converted into numerical features using one-hot encoding.
 
-Feature Scaling
+### Feature Scaling
 
-StandardScaler is applied because KNN relies on distance calculations between observations.
+`StandardScaler` is applied because KNN relies on distance calculations between observations.
 
+```python
 from sklearn.preprocessing import StandardScaler
 
 scaler = StandardScaler()
 
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
+```
 
 The scaler is fitted only on the training data to prevent data leakage.
 
-Model
+## Model
 
-The project uses KNeighborsClassifier from Scikit-learn.
+The project uses `KNeighborsClassifier` from Scikit-learn.
 
 Multiple K values are evaluated to identify a suitable value based on model performance.
 
+```python
 from sklearn.neighbors import KNeighborsClassifier
 
 knn = KNeighborsClassifier(n_neighbors=best_k)
@@ -140,30 +148,35 @@ knn = KNeighborsClassifier(n_neighbors=best_k)
 knn.fit(X_train_scaled, y_train)
 
 y_pred = knn.predict(X_test_scaled)
-Model Evaluation
+```
+
+## Model Evaluation
 
 The model is evaluated using:
 
-Accuracy
-Precision
-Recall
-F1 Score
-Confusion Matrix
-Classification Report
+* Accuracy
+* Precision
+* Recall
+* F1 Score
+* Confusion Matrix
+* Classification Report
 
 The project also compares different K values using Accuracy and F1 Score.
 
-Visualizations
+## Visualizations
 
 The following visualizations are included:
 
-Churn Distribution
-Monthly Charges vs Churn
-Satisfaction Score vs Churn
-Last Login vs Churn
-K Value vs Model Performance
-Confusion Matrix
-Project Structure
+* Churn Distribution
+* Monthly Charges vs Churn
+* Satisfaction Score vs Churn
+* Last Login vs Churn
+* K Value vs Model Performance
+* Confusion Matrix
+
+## Project Structure
+
+```text
 app-user-churn-prediction/
 │
 ├── data/
@@ -182,59 +195,72 @@ app-user-churn-prediction/
 │
 ├── README.md
 └── requirements.txt
-Technologies Used
-Python
-Pandas
-NumPy
-Scikit-learn
-Matplotlib
-Seaborn
-Jupyter Notebook
-Installation
+```
+
+## Technologies Used
+
+* Python
+* Pandas
+* NumPy
+* Scikit-learn
+* Matplotlib
+* Seaborn
+* Jupyter Notebook
+
+## Installation
 
 Clone the repository:
 
+```bash
 git clone https://github.com/your-username/app-user-churn-prediction.git
+```
 
 Navigate to the project directory:
 
+```bash
 cd app-user-churn-prediction
+```
 
 Install the required dependencies:
 
+```bash
 pip install -r requirements.txt
+```
 
 Launch Jupyter Notebook:
 
+```bash
 jupyter notebook
+```
 
-Open the notebook from the notebooks directory.
+Open the notebook from the `notebooks` directory.
 
-Learning Outcomes
+## Learning Outcomes
 
 This project demonstrates:
 
-Classification using KNN
-Data preprocessing
-Missing value handling
-Duplicate detection
-Outlier analysis
-Categorical encoding
-Feature scaling
-Hyperparameter selection
-Model evaluation
-Exploratory data analysis
-License
+* Classification using KNN
+* Data preprocessing
+* Missing value handling
+* Duplicate detection
+* Outlier analysis
+* Categorical encoding
+* Feature scaling
+* Hyperparameter selection
+* Model evaluation
+* Exploratory data analysis
+
+## License
 
 This project is licensed under the MIT License.
 
-Author
+## Author
 
-Kaviyadharshini M
+**Kaviyadharshini M**
 
 Computer Science Engineering
 Artificial Intelligence | Machine Learning | Data Science
 
-Support
+## Support
 
 If you found this project helpful, consider giving it a ⭐ to support my Machine Learning learning journey.
